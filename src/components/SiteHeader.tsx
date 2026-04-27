@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import logo from "@/assets/sys-logo.png";
 
 const links = [
   { to: "/", label: "Home" },
@@ -15,10 +16,12 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b border-border">
       <div className="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 group">
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-navy text-cream font-display font-bold text-lg">
-            S
-          </span>
+        <Link to="/" className="flex items-center gap-3 group">
+          <img
+            src={logo}
+            alt="SYS — Shape Your Success logo"
+            className="h-10 w-10 rounded-full object-cover"
+          />
           <span className="font-display text-lg tracking-tight text-navy">
             SYS<span className="text-gold"> · </span>
             <span className="hidden sm:inline text-foreground/70 font-sans text-sm font-medium">

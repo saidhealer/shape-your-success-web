@@ -1,15 +1,18 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, Phone, MapPin } from "lucide-react";
+import logo from "@/assets/sys-logo.png";
 
 export function SiteFooter() {
   return (
     <footer className="bg-navy text-cream/90 mt-24">
       <div className="mx-auto max-w-6xl px-6 py-16 grid gap-12 md:grid-cols-3">
         <div>
-          <div className="flex items-center gap-2 mb-4">
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gold text-navy font-display font-bold text-lg">
-              S
-            </span>
+          <div className="flex items-center gap-3 mb-4">
+            <img
+              src={logo}
+              alt="SYS — Shape Your Success logo"
+              className="h-11 w-11 rounded-full object-cover ring-1 ring-cream/20"
+            />
             <span className="font-display text-lg text-cream">SYS Educational Services</span>
           </div>
           <p className="text-sm text-cream/70 leading-relaxed">
