@@ -51,7 +51,7 @@ function Contact() {
     setSubmitError(null);
     setSubmitting(true);
     try {
-      const res = await fetch("https://formspree.io/f/xbdqeboq", {
+      const res = await fetch("https://formspree.io/f/xvzdnybb", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(result.data),
