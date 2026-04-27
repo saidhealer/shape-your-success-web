@@ -33,7 +33,10 @@ function Contact() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [sent, setSent] = useState(false);
 
-  const onSubmit = (e: React.FormEvent) => {
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const result = contactSchema.safeParse(form);
     if (!result.success) {
@@ -45,8 +48,25 @@ function Contact() {
       return;
     }
     setErrors({});
-    setSent(true);
-    setForm({ name: "", email: "", message: "" });
+    setSubmitError(null);
+    setSubmitting(true);
+    try {
+      const res = await fetch("https://formspree.io/f/xbdqeboq", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(result.data),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => null);
+        throw new Error(data?.errors?.[0]?.message || "Failed to send message");
+      }
+      setSent(true);
+      setForm({ name: "", email: "", message: "" });
+    } catch (err) {
+      setSubmitError(err instanceof Error ? err.message : "Failed to send message");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
