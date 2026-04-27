@@ -13,6 +13,29 @@ import {
   MessageCircleHeart,
 } from "lucide-react";
 
+const pathway = [
+  {
+    grade: "9th Grade",
+    title: "Planning + Class Mapping",
+    body: "Build a 4-year plan, understand graduation requirements, and start tracking GPA from day one.",
+  },
+  {
+    grade: "10–11th Grade",
+    title: "Running Start, Honors & Career Paths",
+    body: "Explore AP, IB, Honors, CTE, and Running Start tracks like nursing or computer science at Seattle Central.",
+  },
+  {
+    grade: "12th Grade",
+    title: "College Apps & Scholarships",
+    body: "Common App, FAFSA, fee waivers, scholarships, and resume + LinkedIn building — every deadline covered.",
+  },
+  {
+    grade: "Post-Grad",
+    title: "Transition & Belonging",
+    body: "Smooth handoff into college, technical programs, or the workforce — with continued mentorship.",
+  },
+];
+
 export const Route = createFileRoute("/programs")({
   head: () => ({
     meta: [
