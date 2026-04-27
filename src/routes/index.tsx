@@ -23,9 +23,9 @@ export const Route = createFileRoute("/")({
 });
 
 const stats = [
-  { value: "90%", label: "of participants better plan their academic path" },
-  { value: "85%", label: "report increased motivation after workshops" },
-  { value: "10+", label: "partnerships with local Seattle schools" },
+  { value: "500+", label: "students mentored across the Seattle area" },
+  { value: "95%", label: "of participants feel more confident about their future" },
+  { value: "15+", label: "partner schools and community organizations" },
 ];
 
 function Home() {
