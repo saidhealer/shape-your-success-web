@@ -190,11 +190,15 @@ function Contact() {
                 />
                 {errors.message && <p className="mt-1.5 text-xs text-destructive">{errors.message}</p>}
               </div>
+              {submitError && (
+                <p className="text-sm text-destructive">{submitError}</p>
+              )}
               <button
                 type="submit"
-                className="inline-flex items-center gap-2 rounded-full bg-navy text-cream px-6 py-3 text-sm font-semibold hover:bg-navy/90 transition-all hover:gap-3"
+                disabled={submitting}
+                className="inline-flex items-center gap-2 rounded-full bg-navy text-cream px-6 py-3 text-sm font-semibold hover:bg-navy/90 transition-all hover:gap-3 disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                Send message <Send className="h-4 w-4" />
+                {submitting ? "Sending..." : "Send message"} <Send className="h-4 w-4" />
               </button>
             </form>
           )}
