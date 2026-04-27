@@ -13,6 +13,29 @@ import {
   MessageCircleHeart,
 } from "lucide-react";
 
+const pathway = [
+  {
+    grade: "9th Grade",
+    title: "Planning + Class Mapping",
+    body: "Build a 4-year plan, understand graduation requirements, and start tracking GPA from day one.",
+  },
+  {
+    grade: "10–11th Grade",
+    title: "Running Start, Honors & Career Paths",
+    body: "Explore AP, IB, Honors, CTE, and Running Start tracks like nursing or computer science at Seattle Central.",
+  },
+  {
+    grade: "12th Grade",
+    title: "College Apps & Scholarships",
+    body: "Common App, FAFSA, fee waivers, scholarships, and resume + LinkedIn building — every deadline covered.",
+  },
+  {
+    grade: "Post-Grad",
+    title: "Transition & Belonging",
+    body: "Smooth handoff into college, technical programs, or the workforce — with continued mentorship.",
+  },
+];
+
 export const Route = createFileRoute("/programs")({
   head: () => ({
     meta: [
@@ -178,8 +201,45 @@ function Programs() {
         ))}
       </section>
 
+      {/* Grade-by-grade pathway */}
+      <section className="bg-navy text-cream py-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="max-w-2xl mb-12">
+            <p className="text-xs uppercase tracking-[0.2em] text-gold font-semibold">
+              Program Structure
+            </p>
+            <h2 className="mt-3 text-4xl font-display text-cream leading-tight">
+              A pathway from freshman year through post-graduation.
+            </h2>
+            <p className="mt-4 text-cream/75 leading-relaxed">
+              Early intervention is what makes SYS different. We meet students at every stage — not
+              just senior year — so the plan grows with them.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {pathway.map((p, i) => (
+              <div
+                key={p.grade}
+                className="relative rounded-2xl bg-cream/5 border border-cream/10 p-6 hover:bg-cream/10 transition-colors"
+              >
+                <div className="font-display text-5xl text-gold/30 absolute top-4 right-5 leading-none">
+                  0{i + 1}
+                </div>
+                <p className="text-xs uppercase tracking-[0.18em] text-gold font-semibold">
+                  {p.grade}
+                </p>
+                <h3 className="mt-2 font-display text-xl text-cream">{p.title}</h3>
+                <p className="mt-3 text-sm text-cream/75 leading-relaxed">{p.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Student resources grid */}
       <section className="bg-cream/60 border-y border-border">
+
         <div className="mx-auto max-w-6xl px-6 py-20">
           <div className="max-w-2xl mb-12">
             <p className="text-xs uppercase tracking-[0.2em] text-teal font-semibold">

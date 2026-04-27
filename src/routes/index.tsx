@@ -45,9 +45,9 @@ function Home() {
               <span className="italic text-gold">Starting Now.</span>
             </h1>
             <p className="mt-6 text-lg text-foreground/70 max-w-xl leading-relaxed">
-              SYS Educational Services helps high school students plan for graduation, college, and
-              career — with workshops built for the students who too often get left out of the
-              conversation.
+              SYS is early intervention for high school students — personalized academic and career
+              guidance from freshman year through post-graduation, built for first-gen, BIPOC, and
+              underserved youth across Seattle.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
