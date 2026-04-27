@@ -133,9 +133,21 @@ function Home() {
 
         <div className="grid md:grid-cols-3 gap-6">
           {[
-            { icon: GraduationCap, title: "Graduation Planning", desc: "Stay on track for graduation with credit audits and personalized planning." },
-            { icon: Sparkles, title: "College & Career Prep", desc: "Applications, financial aid, and exploring career paths that fit." },
-            { icon: Users, title: "Soft Skills & Leadership", desc: "Communication, confidence, and the leadership habits that open doors." },
+            {
+              icon: GraduationCap,
+              title: "Graduation Planning",
+              desc: "A personalized 4-year roadmap with credit audits, course planning, and Running Start guidance.",
+            },
+            {
+              icon: Sparkles,
+              title: "College & Career Prep",
+              desc: "Common App, FAFSA, scholarships, fee waivers, and personal statements — every deadline covered.",
+            },
+            {
+              icon: Users,
+              title: "Soft Skills & Leadership",
+              desc: "Public speaking, interviews, networking, and the confidence to lead in any room.",
+            },
           ].map((p) => (
             <div key={p.title} className="group rounded-2xl border border-border bg-card p-7 hover:border-gold/50 hover:shadow-soft transition-all">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-cream text-navy group-hover:bg-gold group-hover:text-navy transition-colors">
