@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Heart, Compass, Users } from "lucide-react";
+import { Heart, Compass, Users, Sparkles, MapPin, HandHeart } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -8,18 +8,41 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "Founded by Said Mohammed in Seattle, SYS Educational Services is a youth mentorship organization rooted in community and committed to underrepresented students.",
+          "Founded by Said Mohammed in Seattle, SYS empowers high school students — especially first-gen, BIPOC, and underserved youth — with early, personalized academic and career guidance.",
       },
       { property: "og:title", content: "About SYS Educational Services" },
       {
         property: "og:description",
         content:
-          "Meet the founder and learn the mission behind SYS — empowering Seattle's high school students.",
+          "Meet the founder and learn the mission behind SYS — early intervention mentorship for Seattle's high school students.",
       },
     ],
   }),
   component: About,
 });
+
+const approach = [
+  {
+    icon: Sparkles,
+    title: "Start Early",
+    body: "We begin with 9th graders so students plan the full high school path — not scramble in senior year.",
+  },
+  {
+    icon: MapPin,
+    title: "Local Focus",
+    body: "Services are tailored to real school data — Garfield High School graduation requirements, Seattle Central pathways, and local scholarships.",
+  },
+  {
+    icon: Compass,
+    title: "Bridge Opportunities",
+    body: "We connect students directly to programs like Running Start at Seattle Central — including nursing and computer science tracks.",
+  },
+  {
+    icon: HandHeart,
+    title: "Culturally Grounded",
+    body: "We center self-confidence, identity, and belonging. Students see themselves in the mentors and the material.",
+  },
+];
 
 function About() {
   return (
@@ -28,12 +51,13 @@ function About() {
         <div className="mx-auto max-w-4xl px-6 py-20 md:py-28">
           <p className="text-xs uppercase tracking-[0.2em] text-teal font-semibold">About SYS</p>
           <h1 className="mt-4 text-5xl md:text-6xl font-display text-navy leading-[1.05]">
-            Built from lived experience. <span className="italic text-gold">Rooted in community.</span>
+            Built from lived experience.{" "}
+            <span className="italic text-gold">Rooted in community.</span>
           </h1>
           <p className="mt-6 text-lg text-foreground/75 leading-relaxed max-w-2xl">
-            SYS Educational Services exists because too many bright, capable students reach senior
-            year without a clear plan — not for lack of talent, but for lack of guidance. We're
-            changing that, one workshop at a time.
+            SYS Educational Services empowers high school students — especially from
+            underrepresented communities — with early, personalized academic and career guidance.
+            We help them plan confidently from freshman year through post-graduation.
           </p>
         </div>
       </section>
@@ -52,7 +76,9 @@ function About() {
             </div>
           </div>
           <div className="md:col-span-3">
-            <p className="text-xs uppercase tracking-[0.2em] text-teal font-semibold">Founder Story</p>
+            <p className="text-xs uppercase tracking-[0.2em] text-teal font-semibold">
+              Founder Story
+            </p>
             <h2 className="mt-3 text-3xl md:text-4xl font-display text-navy">
               The mentor I needed in high school.
             </h2>
@@ -69,23 +95,51 @@ function About() {
                 what was actually possible."
               </p>
               <p>
-                Today, SYS partners with schools and community organizations across the Seattle
-                area, bringing that same approach to hundreds of students — especially those from
-                immigrant, low-income, and historically underserved backgrounds.
+                Today, SYS is officially registered as an LLC and is building its pilot model
+                around Garfield High School and Seattle Central pathways — bringing structured
+                support to first-gen, BIPOC, and historically underserved students.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Mission + Vision */}
-      <section className="bg-cream py-20">
+      {/* Our Approach */}
+      <section className="bg-cream/60 border-y border-border py-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="max-w-2xl mb-12">
+            <p className="text-xs uppercase tracking-[0.2em] text-teal font-semibold">
+              Our Approach
+            </p>
+            <h2 className="mt-3 text-4xl font-display text-navy leading-tight">
+              Four principles guide everything we do.
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-5">
+            {approach.map((a) => (
+              <div
+                key={a.title}
+                className="bg-background rounded-2xl p-7 border border-border hover:border-gold/50 hover:shadow-soft transition-all"
+              >
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-navy text-gold">
+                  <a.icon className="h-5 w-5" />
+                </div>
+                <h3 className="mt-4 text-xl font-display text-navy">{a.title}</h3>
+                <p className="mt-2 text-sm text-foreground/70 leading-relaxed">{a.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Mission + Vision + Audience */}
+      <section className="py-20">
         <div className="mx-auto max-w-6xl px-6 grid md:grid-cols-3 gap-6">
           {[
             {
               icon: Heart,
               title: "Our Mission",
-              body: "To equip high school students with the planning tools, mentorship, and confidence to design a future they're excited about.",
+              body: "To empower high school students with early, personalized academic and career guidance from freshman year through post-graduation.",
             },
             {
               icon: Compass,
@@ -95,7 +149,7 @@ function About() {
             {
               icon: Users,
               title: "Who We Serve",
-              body: "9th–12th grade students from underrepresented communities, plus the schools, families, and partners who support them.",
+              body: "Grades 9–12 — especially first-gen, BIPOC, and underserved youth — plus the parents, schools, and nonprofits who support them.",
             },
           ].map((v) => (
             <div key={v.title} className="bg-card rounded-2xl p-8 border border-border">
@@ -110,7 +164,7 @@ function About() {
       </section>
 
       {/* CTA */}
-      <section className="mx-auto max-w-4xl px-6 py-20 text-center">
+      <section className="mx-auto max-w-4xl px-6 py-16 text-center">
         <h2 className="font-display text-3xl md:text-4xl text-navy">Want to partner with us?</h2>
         <p className="mt-4 text-foreground/70 max-w-xl mx-auto">
           We're always looking for schools, sponsors, and community members who share our mission.
