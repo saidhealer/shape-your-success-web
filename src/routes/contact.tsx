@@ -10,7 +10,7 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Get in touch with SYS Educational Services to bring mentorship workshops to your Seattle-area school. Call 206-591-3788 or email info@sysmentors.com.",
+          "Get in touch with SYS Educational Services to bring mentorship workshops to your Seattle-area school. Call 206-591-3788 or email saidomermohammed@gmail.com.",
       },
       { property: "og:title", content: "Contact SYS Educational Services" },
       {
@@ -83,10 +83,10 @@ function Contact() {
                 <div>
                   <div className="text-cream/60 text-xs uppercase tracking-wider">Email</div>
                   <a
-                    href="mailto:info@sysmentors.com"
+                    href="mailto:saidomermohammed@gmail.com"
                     className="text-cream hover:text-gold transition-colors text-base break-all"
                   >
-                    info@sysmentors.com
+                    saidomermohammed@gmail.com
                   </a>
                 </div>
               </li>
