@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ProgramsRouteImport } from './routes/programs'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CollegeAppsRouteImport } from './routes/college-apps'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -22,6 +23,11 @@ const ProgramsRoute = ProgramsRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CollegeAppsRoute = CollegeAppsRouteImport.update({
+  id: '/college-apps',
+  path: '/college-apps',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -38,12 +44,14 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/college-apps': typeof CollegeAppsRoute
   '/contact': typeof ContactRoute
   '/programs': typeof ProgramsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/college-apps': typeof CollegeAppsRoute
   '/contact': typeof ContactRoute
   '/programs': typeof ProgramsRoute
 }
@@ -51,20 +59,22 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/college-apps': typeof CollegeAppsRoute
   '/contact': typeof ContactRoute
   '/programs': typeof ProgramsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contact' | '/programs'
+  fullPaths: '/' | '/about' | '/college-apps' | '/contact' | '/programs'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/programs'
-  id: '__root__' | '/' | '/about' | '/contact' | '/programs'
+  to: '/' | '/about' | '/college-apps' | '/contact' | '/programs'
+  id: '__root__' | '/' | '/about' | '/college-apps' | '/contact' | '/programs'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  CollegeAppsRoute: typeof CollegeAppsRoute
   ContactRoute: typeof ContactRoute
   ProgramsRoute: typeof ProgramsRoute
 }
@@ -83,6 +93,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/college-apps': {
+      id: '/college-apps'
+      path: '/college-apps'
+      fullPath: '/college-apps'
+      preLoaderRoute: typeof CollegeAppsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -105,6 +122,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  CollegeAppsRoute: CollegeAppsRoute,
   ContactRoute: ContactRoute,
   ProgramsRoute: ProgramsRoute,
 }
