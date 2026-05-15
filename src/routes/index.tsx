@@ -22,12 +22,6 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const stats = [
-  { value: "500+", label: "students mentored across the Seattle area" },
-  { value: "95%", label: "of participants feel more confident about their future" },
-  { value: "15+", label: "partner schools and community organizations" },
-];
-
 function Home() {
   return (
     <div>
@@ -99,23 +93,6 @@ function Home() {
           they need to succeed after graduation.
         </p>
       </section>
-
-      {/* Stats */}
-      <section className="bg-navy text-cream py-20">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="grid md:grid-cols-3 gap-8">
-            {stats.map((s) => (
-              <div key={s.value} className="text-center md:text-left border-t border-cream/15 pt-8">
-                <div className="font-display text-6xl text-gold font-semibold">{s.value}</div>
-                <p className="mt-3 text-cream/80 text-sm leading-relaxed max-w-xs mx-auto md:mx-0">
-                  {s.label}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Programs preview */}
       <section className="mx-auto max-w-6xl px-6 py-24">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
